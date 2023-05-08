@@ -13,21 +13,17 @@ export class AppComponent {
   title = 'eduOnlineSystems';
   @ViewChild('sidenav') sidenav: MatSidenav | undefined;
 
-  constructor(public service:VoiceRecognitionService){
+  constructor(){
 
-    navigator.mediaDevices.getUserMedia({audio:true}).then(res=>{
-      service.start();
-    })
+
   }
   ngOnInit() {
-    this.service.speechInput().subscribe(text => {
-      console.log('Speech recognized: ', text);
-    });
+
   }
   
   toggleSidenav() {
   
-    this.service.stop()
+
     this.isCollapsed = !this.isCollapsed;
     if (this.isCollapsed) {
     //  this.sidenav?.close();
